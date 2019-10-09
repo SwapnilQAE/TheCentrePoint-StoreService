@@ -8,15 +8,17 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Product {
-
+public class StoreEntity {
+	
 	@Id
 	@GeneratedValue
-	private long productID;
+	private long storeID;
 	
-	private String productName;
-	private String type;
-	private String description;
+	private boolean isOpen;
+	private int pinCode;
+	private String address;
+	private double latitude;
+	private double longitude;
 	private long createdAt;
 	private long modifiedAt;
 }
