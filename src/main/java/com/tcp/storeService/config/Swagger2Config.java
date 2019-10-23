@@ -19,8 +19,8 @@ public class Swagger2Config {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.tcp.storeService.StoreServiceController"))
-                .paths(PathSelectors.regex("/.*"))
+                .apis(RequestHandlerSelectors.basePackage("com.tcp.storeService"))
+                .paths(PathSelectors.any())
                 .build().apiInfo(apiEndPointsInfo());
     }
 
