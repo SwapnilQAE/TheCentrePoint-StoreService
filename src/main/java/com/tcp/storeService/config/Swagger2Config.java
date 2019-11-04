@@ -26,7 +26,7 @@ public class Swagger2Config {
 
     private ApiInfo apiEndPointsInfo() {
         return new ApiInfoBuilder().title("The Center Point")
-                .description("The Store Service API's")
+                .description("The StoreDetails Service API's")
                 .contact(new Contact("Swapnil Jain", "www.tcp.com", "qae.swapniljain@gmail.com"))
                 .license("Apache 2.0")
                 .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")

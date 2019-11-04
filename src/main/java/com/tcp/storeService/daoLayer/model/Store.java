@@ -14,23 +14,23 @@ import java.sql.Timestamp;
 public class Store {
     @Id
     @GeneratedValue
-    private long storeID;
+    private long store_id;
 
     @GeneratedValue
     @Column(name = "created_at", updatable = false)
     @CreationTimestamp
-    private Timestamp createdAt;
+    private Timestamp created_at;
 
     @GeneratedValue
-    @Column(name = "modified_at")
+    @Column(name = "modified_at", updatable = false)
     @UpdateTimestamp
-    private Timestamp modifiedAt;
+    private Timestamp modified_at;
 
-    @Column(name = "is_open", nullable = false)
-    private boolean isOpen;
+    @Column(name = "isOpen", nullable = false)
+    private boolean is_open;
 
     @Column(name = "pin_code", nullable = false)
-    private int pinCode;
+    private int pin_code;
 
     @Column(nullable = false)
     private String address;
@@ -44,8 +44,18 @@ public class Store {
     public Store() {
     }
 
-    public Store(int pinCode, String address, double latitude, double longitude) {
-        this.pinCode = pinCode;
+    public Store(int pin_code, boolean is_open, String address, double latitude, double longitude) {
+        this.is_open = is_open;
+        this.pin_code = pin_code;
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public Store(long store_id, int pin_code, boolean is_open, String address, double latitude, double longitude) {
+        this.store_id = store_id;
+        this.pin_code = pin_code;
+        this.is_open = is_open;
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -53,12 +63,12 @@ public class Store {
 
     @Override
     public String toString() {
-        return "Store{" +
-                "storeID=" + storeID +
-                ", createdAt=" + createdAt +
-                ", modifiedAt=" + modifiedAt +
-                ", isOpen=" + isOpen +
-                ", pinCode=" + pinCode +
+        return "StoreDetails{" +
+                "store_id=" + store_id +
+                ", created_at=" + created_at +
+                ", modified_at=" + modified_at +
+                ", isOpen=" + is_open +
+                ", pin_code=" + pin_code +
                 ", address='" + address + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
